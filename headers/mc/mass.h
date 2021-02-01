@@ -1,6 +1,9 @@
 ﻿#pragma once
 //#include<api\serviceLocate.h>
-//#include<api\Loader.h>
+#include <api/serviceLocate.h>
+#include <loader/Loader.h>
+#include <mc/Core.h>
+
 struct MCRESULT {
 	unsigned char filler[4];
 	operator bool() {
@@ -31,7 +34,7 @@ public:
 	static MCRESULT _runcmd(void* origin, const std::string& cmd, int unk1, bool unk2) {
 		MCRESULT rv;
 		/*SymCall("?executeCommand@MinecraftCommands@@QEBA?AUMCRESULT@@V?$shared_ptr@VCommandContext@@@std@@_N@Z", void, MinecraftCommands*, MCRESULT*, shared_ptr<CommandContext>, bool)(LocateS<MinecraftCommands>::_srv,&rv,std::make_shared<CommandContext>(std::forward<TP>(cmd),(CommandOrigin*)origin),false);*/
-		//SymCall("?requestCommandExecution@MinecraftCommands@@QEBA?AUMCRESULT@@V?$unique_ptr@VCommandOrigin@@U?$default_delete@VCommandOrigin@@@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@4@H_N@Z", void, MinecraftCommands*, MCRESULT*, void**, string const&, int, bool)(LocateS<MinecraftCommands>::_srv, &rv, &origin, cmd, unk1, unk2);
+		SymCall("?requestCommandExecution@MinecraftCommands@@QEBA?AUMCRESULT@@V?$unique_ptr@VCommandOrigin@@U?$default_delete@VCommandOrigin@@@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@4@H_N@Z", void, MinecraftCommands*, MCRESULT*, void**, std::string const&, int, bool)(LocateS<MinecraftCommands>::_srv, &rv, &origin, cmd, unk1, unk2);
 		return rv;
 	}
 };
@@ -72,6 +75,7 @@ struct RakPeer_t {
 	}
 };
 class ServerPlayer;
+/*
 class ServerNetworkHandler {
 public:
 	//class ServerPlayer * __ptr64 __cdecl ServerNetworkHandler::_getServerPlayer(class NetworkIdentifier const & __ptr64,unsigned char)
@@ -83,6 +87,7 @@ public:
 	}
 	MCINLINE void onDisconnect(class NetworkIdentifier const& a0) { SymCall("?onDisconnect@ServerNetworkHandler@@UEAAXAEBVNetworkIdentifier@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N1@Z", void, ServerNetworkHandler const*, class NetworkIdentifier const&)(this, a0); }
 };
+*/
 class Minecraft {
 public:
 	MCINLINE class Level* getLevel() {
