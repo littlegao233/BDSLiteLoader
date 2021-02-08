@@ -7,7 +7,7 @@ class NetworkIdentifier;
 namespace liteloader {
 	using std::string;
 	LIAPI bool runcmd(const string& cmd);
-	//LIAPI bool runcmdAs(WPlayer, const string& cmd);
+	LIAPI bool runcmdAs(WPlayer, const string& cmd);
 	LIAPI std::pair<bool, string> runcmdEx(const string& cmd);
 	LIAPI string getIP(NetworkIdentifier&);
 	template<typename T>
