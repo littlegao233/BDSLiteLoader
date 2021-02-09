@@ -66,11 +66,11 @@ namespace liteloader {
 		}
 		filler[0] = FAKE_PORGVTBL+1;
 		return MinecraftCommands::_runcmd(filler, cmd, 4, 1);
-	}
+	}*/
 	LIAPI string getIP(class ::NetworkIdentifier& ni) {
 		string rv = LocateS<RakPeer_t>()->getAdr(ni).toString();
 		return rv.substr(0,rv.find('|'));
-	}*/
+	}
 };
 THook(void*, "?send@CommandOutputSender@@UEAAXAEBVCommandOrigin@@AEBVCommandOutput@@@Z", void* thi, void* ori, void* out) {
 	auto it = liteloader::origin_res.find(ori);
