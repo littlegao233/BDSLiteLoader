@@ -207,6 +207,7 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="dlsym.cpp" />
+    <ClCompile Include="fixbdsbug.cpp" />
     <ClCompile Include="LiteLoader.cpp" />
     <ClCompile Include="mc\ServiceLocator.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>

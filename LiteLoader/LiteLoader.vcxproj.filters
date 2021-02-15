@@ -179,6 +179,9 @@
     <ClCompile Include="api\Basic_Event.cpp">
       <Filter>源文件\api</Filter>
     </ClCompile>
+    <ClCompile Include="fixbdsbug.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\lib\detours.lib" />
